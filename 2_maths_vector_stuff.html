@@ -4986,21 +4986,21 @@ vertical-align: -.125em;
 <section id="sec-basic-maths" class="level2">
 <h2 class="anchored" data-anchor-id="sec-basic-maths">Basic Maths</h2>
 <p>As you probably can guess, the REPL is an interface onto a large calculator. Julia does all the things R does… and you can find the basic maths operations defined <a href="https://docs.julialang.org/en/v1/manual/mathematical-operations/index.html">The Julia Manual</a></p>
-<div id="d9d1ec55" class="cell" data-execution_count="2">
+<div id="6acd2b6d" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sums</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fl">1</span><span class="op">+</span><span class="fl">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="3">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="61c5d84e" class="cell" data-execution_count="3">
+<div id="9a0a71a3" class="cell" data-execution_count="3">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># power</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fl">10</span><span class="op">^</span><span class="fl">3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="4">
 <pre><code>1000</code></pre>
 </div>
 </div>
-<div id="4208fd99" class="cell" data-execution_count="4">
+<div id="ff9d14f1" class="cell" data-execution_count="4">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sequences in a vector</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># From 0, by 1, to 10...</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -5023,7 +5023,7 @@ vertical-align: -.125em;
  10</code></pre>
 </div>
 </div>
-<div id="c5fe6615" class="cell" data-execution_count="5">
+<div id="dbd4706c" class="cell" data-execution_count="5">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># multply scaler x vector.</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>x<span class="op">*</span><span class="fl">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="6">
@@ -5054,7 +5054,7 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="allocating-data-to-objects">Allocating data to objects</h3>
 <p>Allocating in Julia is useful as it means that variables can be stored and used elsewhere. You allocate numbers to objects using the following:</p>
 <p>First note that we use the <code>=</code> in <code>Julia</code>, not the <code>&lt;-</code> as in R.</p>
-<div id="ebe496cc" class="cell" data-execution_count="6">
+<div id="e318f146" class="cell" data-execution_count="6">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># allocate an Integer number to a variable</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>n <span class="op">=</span> <span class="fl">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="7">
@@ -5062,7 +5062,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>Julia, like other languages, has some built in values, like <code>pi</code>. We can allocate these to variable names we will use. Notice that Julia converts pi into the unicode symbol!</p>
-<div id="bc69259b" class="cell" data-execution_count="7">
+<div id="b9e62568" class="cell" data-execution_count="7">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># allocate a pre-defined number of importance to a variable</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># note that pi is converted to π</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># note2 - you can use \pi in a julia script to get the unicode π ...</span></span>
@@ -5074,7 +5074,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>We can use these unicode symbols (and emojis!), like λ, as objects</p>
-<div id="fb38e995" class="cell" data-execution_count="8">
+<div id="1fbfec5e" class="cell" data-execution_count="8">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>λ <span class="op">=</span> <span class="fl">4</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>λ</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="9">
@@ -5082,7 +5082,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>You can also assign multiple values to separate variables in a concise manner. Julia can manage something like this:</p>
-<div id="b7bc0e03" class="cell" data-execution_count="9">
+<div id="5fb8cdb3" class="cell" data-execution_count="9">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>αi, βi, γi <span class="op">=</span> <span class="fl">1.3</span>, <span class="fl">2.1</span>, <span class="fu">exp</span>(<span class="fl">39</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co"># confirm...</span></span>
@@ -5094,14 +5094,14 @@ vertical-align: -.125em;
 <section id="allocating-strings" class="level4">
 <h4 class="anchored" data-anchor-id="allocating-strings">Allocating strings</h4>
 <p>Of course you can also allocate strings of text to objects. You must use the <code>&quot;&quot;</code> and not <code>&#39;&#39;</code> to define strings.</p>
-<div id="2ed31d6e" class="cell" data-execution_count="10">
+<div id="d03bf8bc" class="cell" data-execution_count="10">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sob <span class="op">=</span> <span class="st">&quot;School of Biosciences&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="11">
 <pre><code>&quot;School of Biosciences&quot;</code></pre>
 </div>
 </div>
 <p>You can combine strings and numbers to print like this. Note how you use $object.name within the text string you are writing… and this works for objects that are text or numeric.</p>
-<div id="f92b7de7" class="cell" data-execution_count="11">
+<div id="ca28564e" class="cell" data-execution_count="11">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">println</span>(<span class="st">&quot;The favourite number in </span><span class="sc">$</span>sob<span class="st"> is </span><span class="sc">$</span>n<span class="st">&quot;</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The favourite number in School of Biosciences is 5</code></pre>
@@ -5112,14 +5112,14 @@ vertical-align: -.125em;
 <section id="identifying-the-type-of-object-youve-made" class="level3">
 <h3 class="anchored" data-anchor-id="identifying-the-type-of-object-youve-made">Identifying the Type of object you’ve made</h3>
 <p>Julia is very specific about types of objects. Most programming languages are. One way to learn about them is to look at what is made when you make things in different ways.</p>
-<div id="8365e7ad" class="cell" data-execution_count="12">
+<div id="279959df" class="cell" data-execution_count="12">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(n), <span class="fu">typeof</span>(sob), <span class="fu">typeof</span>(<span class="cn">pi</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="13">
 <pre><code>(Int64, String, Irrational{:π})</code></pre>
 </div>
 </div>
 <p>Julia is like R and Python in that it can infer the type of object (Integer, Float, etc) on the left hand side of the equals sign - you don’t have to justify it like you do in C. However, you can declare the type if needed e.g.</p>
-<div id="4c426cce" class="cell" data-execution_count="13">
+<div id="bcdb7841" class="cell" data-execution_count="13">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>pi_custom <span class="op">=</span> <span class="fu">Float64</span>(<span class="fl">3.141592</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="14">
 <pre><code>3.141592</code></pre>
@@ -5127,13 +5127,13 @@ vertical-align: -.125em;
 </div>
 <p>For those of you that are interested, a floating-point object (a Float) is a number that has a decimal place. An Int object is an integer, a number without a decimal place, whereas an Irrational object is a specific type of Float used only for representing some irrational numbers of special significance (e.g. π and γ). The 64 purely refers to 64-bit which is the type of processor your computer uses, most modern computers are 64-bit.</p>
 <p>Occasionally it will be valuable to convert an object from one type to another. For example, <code>n</code> is currently an Integer (Int64), and we might want it to be Float (Float64). To be clear, this is a distinction between <code>5</code> and <code>5.0</code>!</p>
-<div id="2dfbf8b8" class="cell" data-execution_count="14">
+<div id="e3680109" class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="15">
 <pre><code>Int64</code></pre>
 </div>
 </div>
-<div id="0ccac27b" class="cell" data-execution_count="15">
+<div id="c011bd5c" class="cell" data-execution_count="15">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>n2 <span class="op">=</span> <span class="fu">convert</span>(<span class="dt">Float64</span>, n)</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(n2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="16">
@@ -5145,7 +5145,7 @@ vertical-align: -.125em;
 <section id="understanding-arrays-vectors-and-sequences." class="level2">
 <h2 class="anchored" data-anchor-id="understanding-arrays-vectors-and-sequences.">Understanding Arrays, Vectors and Sequences.</h2>
 <p>As you saw above, we created a sequence of numbers using <code>collect(0:1:10)</code>. Let’s look at what type of object this is:</p>
-<div id="92ab0b3e" class="cell" data-execution_count="16">
+<div id="6afd0388" class="cell" data-execution_count="16">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(x)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="17">
 <div class="ansi-escaped-output">
@@ -5154,7 +5154,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>This is a vector. Let’s step back to see the difference between arrays and vectors. Arrays, for the R users, are best thought of as <code>lists</code> - they are storage boxes for any type of variables and can contain collections of various types. The general way to create an array, in this case and empty one, is the <code>[ ]</code>.</p>
-<div id="be9c242d" class="cell" data-execution_count="17">
+<div id="f643a398" class="cell" data-execution_count="17">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>empty_array <span class="op">=</span> []</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="18">
 <pre><code>Any[]</code></pre>
@@ -5162,7 +5162,7 @@ vertical-align: -.125em;
 </div>
 <p>We will first create an array with the same values as x and then see how collect() is the function that converts this to a vector, and actually lets us see the numbers too!</p>
 <p>First, <code>range</code> can be used to make an array. This is very similar to <code>seq()</code> in <code>R</code> and has the two variations - <code>by</code> and <code>length</code> that the <code>R</code> function has. The difference is that <code>by</code> is replaced by the argument <code>step</code>. Note how a very concise summary of this array is presented using information in square brackets <code>[ ]</code>:</p>
-<div id="314431d7" class="cell" data-execution_count="18">
+<div id="8242d099" class="cell" data-execution_count="18">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>x_array1 <span class="op">=</span> <span class="fu">range</span>(start <span class="op">=</span> <span class="fl">1</span>, step <span class="op">=</span> <span class="fl">1</span>, stop <span class="op">=</span> <span class="fl">10</span>)</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>x_array2 <span class="op">=</span> <span class="fu">range</span>(start <span class="op">=</span> <span class="fl">1</span>, stop <span class="op">=</span> <span class="fl">10</span>, length <span class="op">=</span> <span class="fl">5</span>)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -5172,7 +5172,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>You can also now see that creating arrays is possible with <code>[ ]</code> and the use of the <code>:</code> :</p>
-<div id="96baffd7" class="cell" data-execution_count="19">
+<div id="1fc50a0d" class="cell" data-execution_count="19">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>x_array3 <span class="op">=</span> [<span class="fl">1</span><span class="op">:</span><span class="fl">1</span><span class="op">:</span><span class="fl">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="20">
 <pre><code>1-element Vector{StepRange{Int64, Int64}}:
@@ -5180,7 +5180,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>Quite often, you want to either see the values, or specifically be using a vector. To do this, you can use the function <code>collect()</code>:</p>
-<div id="b183daa5" class="cell" data-execution_count="20">
+<div id="5c7a8129" class="cell" data-execution_count="20">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">collect</span>(x_array1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="21">
 <pre><code>10-element Vector{Int64}:
@@ -5201,7 +5201,7 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="indices-of-arrays.">Indices of Arrays.</h2>
 <p>You should recall from <strong>R</strong> that values in arrays and vectors and dataframes have <em>addresses</em> that we call indices. Julia works with indexing very similarly.</p>
 <p>Let’s make a simple array of 5 numbers and another simple array of five words. Note that the <code>[]</code> array function is a but like the <code>c()</code> function in <strong>R</strong>.</p>
-<div id="24cba552" class="cell" data-execution_count="21">
+<div id="a11bda75" class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>ar <span class="op">=</span> [<span class="fl">6</span>,<span class="fl">7</span>,<span class="fl">8</span>,<span class="fl">9</span>,<span class="fl">10</span>]</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>br <span class="op">=</span> [<span class="st">&quot;Pint&quot;</span>, <span class="st">&quot;of&quot;</span>, <span class="st">&quot;Moonshine&quot;</span>, <span class="st">&quot;please&quot;</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="22">
@@ -5213,20 +5213,20 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>You can get any address in these using… square brackets!</p>
-<div id="cfd49f7e" class="cell" data-execution_count="22">
+<div id="8ef6998c" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>ar[<span class="fl">2</span>] <span class="co"># gets the number 7!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="23">
 <pre><code>7</code></pre>
 </div>
 </div>
-<div id="c1e343db" class="cell" data-execution_count="23">
+<div id="0fd1cc2e" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>br[<span class="fl">3</span>] <span class="co"># gets the word Moonshine</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="24">
 <pre><code>&quot;Moonshine&quot;</code></pre>
 </div>
 </div>
 <p>If you want two addresses in a sequence, you can just provide the sequence:</p>
-<div id="ce5109e4" class="cell" data-execution_count="24">
+<div id="02edcaa2" class="cell" data-execution_count="24">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ar[<span class="fl">2</span><span class="op">:</span><span class="fl">3</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="25">
 <pre><code>2-element Vector{Int64}:
@@ -5235,7 +5235,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>But if you want non-adjacent values, you need to provide the ‘list of indices’ as an array, which results in the use of <code>[[ ]]</code>.</p>
-<div id="931d4a65" class="cell" data-execution_count="25">
+<div id="cf26cf2f" class="cell" data-execution_count="25">
 <div class="sourceCode cell-code" id="cb46"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>ar[[<span class="fl">2</span>,<span class="fl">4</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="26">
 <pre><code>2-element Vector{Int64}:
@@ -5249,7 +5249,7 @@ vertical-align: -.125em;
 <h2 class="anchored" data-anchor-id="broadcasting-something-very-special">Broadcasting: something VERY special</h2>
 <p>Broadcasting allows you to apply a function, like a <code>log()</code> or <code>exp()</code>, in an element-wise manner to an array (in other words apply the function to every element of an array).</p>
 <p>We saw above that we can create a vector using <code>collect()</code> and multiply this by a scalar</p>
-<div id="bfbcbb60" class="cell" data-execution_count="26">
+<div id="06cc359b" class="cell" data-execution_count="26">
 <div class="sourceCode cell-code" id="cb48"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># sequences in a vector</span></span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="co"># From 0, by 1, to 10...</span></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -5272,7 +5272,7 @@ vertical-align: -.125em;
  10</code></pre>
 </div>
 </div>
-<div id="064a2823" class="cell" data-execution_count="27">
+<div id="83ba45be" class="cell" data-execution_count="27">
 <div class="sourceCode cell-code" id="cb50"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="co"># multply scaler x vector.</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>x<span class="op">*</span><span class="fl">10</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="28">
@@ -5291,7 +5291,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>You can work directly with arrays and pre-built functions to do things like this. To do-so, we combine the function with the (dot) <code>.</code> operator. Let’s work with <code>x_array1</code> from above. Note how broadcasting the function across the array returns a vector.</p>
-<div id="6d6e3c0e" class="cell" data-execution_count="28">
+<div id="dbf2613f" class="cell" data-execution_count="28">
 <div class="sourceCode cell-code" id="cb52"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Look at the help file for exp10</span></span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>exp_array1 <span class="op">=</span> <span class="fu">exp10</span>.(x_array1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="29">
@@ -5309,7 +5309,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>If you try to do this without the (dot) <code>.</code> operator what happens?</p>
-<div id="433763c6" class="cell" data-execution_count="29">
+<div id="732ab9e4" class="cell" data-execution_count="29">
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="co"># look at the help file for log - what is the default!?</span></span>
 <span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>log_array1 <span class="op">=</span> <span class="fu">log</span>.(x_array1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="30">
@@ -5331,7 +5331,7 @@ vertical-align: -.125em;
 <section id="matrices" class="level2">
 <h2 class="anchored" data-anchor-id="matrices">Matrices</h2>
 <p>Sometimes we’ll be interested in a 2-dimensional or higher version of the array/vector, and this is a matrix. Making a matrix in Julia uses the <code>[ ]</code> again, an separates rows of numbers with the <code>;</code></p>
-<div id="cd123306" class="cell" data-execution_count="30">
+<div id="0aa45f03" class="cell" data-execution_count="30">
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>mat <span class="op">=</span> [<span class="fl">1</span> <span class="fl">2</span> <span class="fl">3</span>; <span class="fl">4</span> <span class="fl">5</span> <span class="fl">6</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="31">
 <pre><code>2×3 Matrix{Int64}:
@@ -5341,7 +5341,7 @@ vertical-align: -.125em;
 </div>
 <p>Note how there are NO commas between the numbers in each row! This is read as ‘rows are separated by ; and columns by spaces’!</p>
 <p>You can also ‘pre-fill’ a matrix with zeros. This is good practice in loops and programming as pre-filling and replacing variables in a matrix is more efficient than creating the matrix on the fly. Here we demonstrate how to pre-fil a vector, matrix and high dimension array! Matrices can have more than two dimensions!</p>
-<div id="abfc54b9" class="cell" data-execution_count="31">
+<div id="a64e7d53" class="cell" data-execution_count="31">
 <div class="sourceCode cell-code" id="cb58"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>vec0 <span class="op">=</span> <span class="fu">zeros</span>(<span class="fl">2</span>) <span class="co"># 2 zeros allocated in a vector</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="32">
 <pre><code>2-element Vector{Float64}:
@@ -5349,7 +5349,7 @@ vertical-align: -.125em;
  0.0</code></pre>
 </div>
 </div>
-<div id="46897ec6" class="cell" data-execution_count="32">
+<div id="d8b1c921" class="cell" data-execution_count="32">
 <div class="sourceCode cell-code" id="cb60"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>mat0 <span class="op">=</span> <span class="fu">zeros</span>(<span class="fl">2</span>,<span class="fl">3</span>) <span class="co"># zeros allocated to 2 rows and 3 columns!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="33">
 <pre><code>2×3 Matrix{Float64}:
@@ -5357,7 +5357,7 @@ vertical-align: -.125em;
  0.0  0.0  0.0</code></pre>
 </div>
 </div>
-<div id="0aa2eea7" class="cell" data-execution_count="33">
+<div id="01aa9188" class="cell" data-execution_count="33">
 <div class="sourceCode cell-code" id="cb62"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>arr0 <span class="op">=</span> <span class="fu">zeros</span>(<span class="fl">2</span>,<span class="fl">3</span>,<span class="fl">4</span>) <span class="co"># 2 rows, 3 columns and 4 dimensions!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="34">
 <pre><code>2×3×4 Array{Float64, 3}:
@@ -5379,13 +5379,13 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>Accessing values in a matrix follows the same convention as with the vector. The convention is <code>[row, column]</code></p>
-<div id="3c24333d" class="cell" data-execution_count="34">
+<div id="c0ab83a5" class="cell" data-execution_count="34">
 <div class="sourceCode cell-code" id="cb64"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>mat[<span class="fl">1</span>,<span class="fl">2</span>] <span class="co"># value in the first row and second column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="35">
 <pre><code>2</code></pre>
 </div>
 </div>
-<div id="99053ca6" class="cell" data-execution_count="35">
+<div id="f4d76a5a" class="cell" data-execution_count="35">
 <div class="sourceCode cell-code" id="cb66"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>mat[<span class="fl">1</span><span class="op">:</span><span class="fl">2</span>, <span class="fl">3</span>] <span class="co"># rows 1 AND 2 in the 3rd column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="36">
 <pre><code>2-element Vector{Int64}:
@@ -5394,7 +5394,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>Finally, to get a row or column, you need to know that we need a placeholder for the <em>missing</em> bit of what you are asking for. If we want the second row, we ask for row 2, and stick the <code>:</code> placeholder in the column spot:</p>
-<div id="46b8146a" class="cell" data-execution_count="36">
+<div id="4a92dc3b" class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb68"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>mat[<span class="fl">2</span>,<span class="op">:</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="37">
 <pre><code>3-element Vector{Int64}:
@@ -5404,7 +5404,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>For a column, we reverse this.</p>
-<div id="5acba74b" class="cell" data-execution_count="37">
+<div id="2c1202bf" class="cell" data-execution_count="37">
 <div class="sourceCode cell-code" id="cb70"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>mat[<span class="op">:</span>,<span class="fl">2</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="38">
 <pre><code>2-element Vector{Int64}:
@@ -5415,7 +5415,7 @@ vertical-align: -.125em;
 <section id="a-quick-interlude-on-types" class="level3">
 <h3 class="anchored" data-anchor-id="a-quick-interlude-on-types">A quick interlude on types</h3>
 <p>As discussed earlier <strong>Julia</strong> is able to infer the type of an object based on the input. So the <code>mat</code> object we created earlier will be a matrix of integers i.e. <code>Matrix{Int64}</code>.</p>
-<div id="abf78118" class="cell" data-execution_count="38">
+<div id="6a354830" class="cell" data-execution_count="38">
 <div class="sourceCode cell-code" id="cb72"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(mat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="39">
 <div class="ansi-escaped-output">
@@ -5424,11 +5424,11 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>So what happens if we want to replace one of the elements with a Float?</p>
-<div id="4b3f18f0" class="cell" data-execution_count="39">
+<div id="b073ffb8" class="cell" data-execution_count="39">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>mat[<span class="fl">1</span>,<span class="fl">2</span>] <span class="op">=</span> <span class="fl">1.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>This is because we are trying to add a Float to an object that is of the type Integer. What happens if we convert <code>mat</code> to be a matrix of floats and then try again?</p>
-<div id="59ea5980" class="cell" data-execution_count="40">
+<div id="e2218ec3" class="cell" data-execution_count="40">
 <div class="sourceCode cell-code" id="cb74"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>mat <span class="op">=</span> <span class="fu">convert</span>(<span class="dt">Matrix</span>{<span class="dt">Float64</span>}, mat)</span>
 <span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>mat[<span class="fl">1</span>,<span class="fl">2</span>] <span class="op">=</span> <span class="fl">1.5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="40">
@@ -5440,7 +5440,7 @@ vertical-align: -.125em;
 <section id="dictionaries" class="level2">
 <h2 class="anchored" data-anchor-id="dictionaries">Dictionaries</h2>
 <p>Dictionaries are another way to collect information in <strong>Julia</strong>, these look-up tables allow you to organise information (the <strong>key</strong>) with corresponding data (<strong>value</strong>). When we create a dictionary we specify it as ‘value’ <code>=&gt;</code> ‘key’. Dictionaries are useful if you need to store a collection of parameters or outputs, especially because the values for each pair can be of a different type.</p>
-<div id="73cc2016" class="cell" data-execution_count="41">
+<div id="4b8df881" class="cell" data-execution_count="41">
 <div class="sourceCode cell-code" id="cb76"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>parameters <span class="op">=</span> <span class="fu">Dict</span><span class="dt">{Symbol,Any}</span>(</span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>growth_rate <span class="op">=&gt;</span> <span class="fl">0.4</span>,</span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>        <span class="op">:</span>response <span class="op">=&gt;</span> <span class="op">:</span>logistic,</span>
@@ -5454,7 +5454,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>We can also add an ‘entry’ to our dictionary very easily (or change the value)</p>
-<div id="af11a642" class="cell" data-execution_count="42">
+<div id="5b7e42a4" class="cell" data-execution_count="42">
 <div class="sourceCode cell-code" id="cb78"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>parameters[<span class="op">:</span>abundance] <span class="op">=</span> <span class="fu">collect</span>(<span class="fl">1</span><span class="op">:</span><span class="fl">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="42">
 <pre><code>10-element Vector{Int64}:
@@ -5473,14 +5473,14 @@ vertical-align: -.125em;
 <section id="looking-things-up" class="level3">
 <h3 class="anchored" data-anchor-id="looking-things-up">Looking things up</h3>
 <p>To get a value, if you have the key:</p>
-<div id="3aa99dc2" class="cell" data-execution_count="43">
+<div id="0f98bc70" class="cell" data-execution_count="43">
 <div class="sourceCode cell-code" id="cb80"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>parameters[<span class="op">:</span>growth_rate]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display" data-execution_count="43">
 <pre><code>0.4</code></pre>
 </div>
 </div>
 <p>You can also get all values using <code>values()</code> (and the same for keys using <code>keys()</code>). Note that these functions are iterators and they have one job: to iterate through a dictionary value by value (or key by key) so if we want to turn these into an array we need to also call <code>collect()</code></p>
-<div id="e93f656d" class="cell" data-execution_count="44">
+<div id="300780b1" class="cell" data-execution_count="44">
 <div class="sourceCode cell-code" id="cb82"><pre class="sourceCode julia code-with-copy"><code class="sourceCode julia"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>param_vals <span class="op">=</span> <span class="fu">collect</span>(<span class="fu">values</span>(parameters))</span>
 <span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a>param_keys <span class="op">=</span> <span class="fu">collect</span>(<span class="fu">keys</span>(parameters))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
