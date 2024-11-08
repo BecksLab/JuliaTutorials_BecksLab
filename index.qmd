@@ -43,7 +43,7 @@ The other thing to be aware of in **Julia** is multiple dispatch, more specifica
 +-----------------------------------------------------------------------------------+-------------------------------+-------------------------+
 | resolving naming conflicts (functions from different packages with the same name) | PACKAGE_NAME::function()      | PACKAGE_NAME.function() |
 +-----------------------------------------------------------------------------------+-------------------------------+-------------------------+
-| calling column from dataframe                                                     | df$COL_NAME                  | df.COL_NAME             |
+| calling column from dataframe                                                     | df$COL_NAME                   | df.COL_NAME             |
 +-----------------------------------------------------------------------------------+-------------------------------+-------------------------+
 | calling the first elements of a dataframe                                         | head()                        | first()                 |
 +-----------------------------------------------------------------------------------+-------------------------------+-------------------------+
