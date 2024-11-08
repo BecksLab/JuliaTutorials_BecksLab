@@ -1,0 +1,14 @@
+/.quarto/
+
+# vscode
+.vscode/*
+.vscode/settings.json
+
+# MacOS nonsense
+.DS_Store
+
+Manifest.toml
+
+# quarto
+
+docs/

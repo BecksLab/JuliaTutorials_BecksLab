@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Julia Tutorials for BEFWM2"
+  page-navigation: true
+  sidebar:
+    style: "docked"
+    search: true
+    contents:
+      - section: "Setting Up"
+        contents:
+          - index.qmd
+          - 1_download_setup.qmd
+      - section: "Basic Calculations and Objects"
+        contents:
+          - 2_maths_vector_stuff.qmd
+          - 3_dataframes.qmd
+      - section: "Programming, Plotting and Extra Tips"
+        contents:
+          - 4_programming_basics.qmd
+          - 5_plotting.qmd
+          - 6_tips_tricks.qmd
+      - section: "Intro to Differential Equations"
+        contents:
+          - 7_differential_equations.qmd
+      - section: "Intro to the BEFW model"
+        contents:
+          - 8_intro_end.qmd
+          - 9_experiments_end.qmd
+          - 10_complex_experiments_end.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+
+
+execute:
+  freeze: auto
