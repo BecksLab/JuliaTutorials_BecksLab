@@ -1,0 +1,93 @@
+---
+title: "Tutorial 6: Extra Tips and Tricks"
+date: now
+author: "Danet and Becks, based on originals by Delmas and Griffiths"
+format:
+    html:
+        embed-resources: true
+title-block-banner: true
+---
+
+Some quick tips that we've learnt the hard way...
+
+1. In the REPL, you can use the up arrow to scroll through past code
+2. You can even filter through your past code by typing the first letter of a line previously executed in the REPL. For example, try typing p in the REPL and using the up arrow to scroll through your code history, you should quickly find the last plot command you executed.
+3. Toggle word wrap via `View>Toggle Word Wrap` or `alt-Z`
+4. Red wavy line under code in your script = _error in code_
+5. Blue wavy line under code in your script = _possible error in code_
+6. Errors and possible errors can be viewed in the PROBLEMS section of the REPL
+7. You can view your current variables (similar to the top right hand panel in RStudio) by clicking on the Julia explorer: Julia workspace symbol in the activity bar (three circles). You can then look at them in more detail by clicking the sideways arrow (when allowed).
+
+### COPYING versus DEEP COPYING :-)
+
+8. Julia has a strange copying behaviour where if `a` = `b`, any change in `b` will automatically cause the same change in `a`. For example, let's make an array of three numbers:
+
+```{julia}
+aa = [1,2,3]
+```
+
+Here we make a copy of `aa` and call it `bb`.
+
+```{julia}
+bb = aa
+print(bb)
+```
+
+Now, we replace the second element of `bb` with the value 41.
+
+```{julia}
+bb[2] = 41
+bb
+```
+
+The default behaviour of `=` in Julia is to *UPDATE* any copy of the array, so we see the same change in `aa`:
+
+```{julia}
+aa
+```
+
+Whoa... that's not what we expect, though it's pretty cool.  This approach is advantageous because it lets Julia save memory, however, it is not ideal.
+
+To remedy this, and create copies that don't update their parent or other offspring, we can force c to be an independent copy of a using the `deepcopy` function:
+
+
+```{julia}
+cc = deepcopy(aa)
+```
+
+```{julia}
+cc[3] = 101
+aa,cc
+```
+
+9. You can view a `.csv` or `.txt` file by clicking on a file name in the project directory (left panel) - this opens a viewing window. CSV's also have a built in 'Preview' mode - try using right click>Open Preview on a `.csv` file and check it out.
+
+10. Docstrings are a supplement to `#`-based comments for documenting your workflow. Basically, any string that appears just before an object will be interpreted as documenting it. When you use a docstring it is possible to call that description using help (`?` in the REPL) or hovering over the object in VSCode. This can be very useful when you start declaring variables or building your own functions.
+
+```{julia}
+"a wonderfully documented and described variable"
+var = 101
+```
+
+you can (should) also do this with functions
+
+```{julia}
+"""
+    _rategradient(∂X, ∂Y)
+
+Returns the rate of change in units of the values stored in the grid, and the
+angle of the change in wind direction, *i.e.* an angle of 180 means that the
+value is increasing *from* the south. When both ∂X and ∂Y are equal to 0, the
+angle is assumed to be 0.
+"""
+function _rategradient(∂X::T, ∂Y::T) where {T <: Number}
+    if ∂X == ∂Y == 0.0
+        return (0.0, 0.0)
+    end
+    m = sqrt(∂X^2 + ∂Y^2)
+    Δ = ∂X >= 0.0 ? 0.0 : 180.0
+    θ = rad2deg(atan(∂X, ∂Y)) + Δ
+    θ = ∂X > 0.0 ? θ + 180.0 : θ
+    return (m, θ)
+end
+```

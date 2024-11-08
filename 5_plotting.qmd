@@ -1,0 +1,164 @@
+---
+title: "Tutorial 5: Plotting in Julia"
+date: now
+author: "Danet and Becks, based on originals by Delmas and Griffiths"
+format:
+    html:
+        embed-resources: true
+title-block-banner: true
+---
+
+```{julia}
+#| echo: false
+using DataFrames, Plots, Random, StatsPlots
+```
+
+In R, the plotting of data is either done in base R or via the `{ggplot2}` package. If you're a base R person, you'll probably feel more comfortable with the Plots package. Alternatively, if you prefer `{ggplot2}`, the StatsPlots and Gadfly package is the closest thing you'll find in Julia. We'll introduce both in the following sections.
+
+It is worth noting that Julia is based on a 'Just in Time' compiler (or JIT) so the first time you call a function it needs to compile, and can take longer than expected. This is especially true when rendering a plot. Consequently, the first plot you make might take some time but it gets significantly faster after that.
+
+## Plots
+
+As you saw in Tutorial 2, we can make plots out of variables very easily with the `plot` function.
+
+```{julia}
+Random.seed!(12345)
+x = 1:100
+y = rand(100)
+
+# label is for the legend/key
+# lw = linewidth
+plot(x, y, label = "amazing", title = "not amazing", lw = 3)
+```
+
+If you want to add more data to a plot, the `plot!()` function is super valuable, and complemented by the `xlabel!()` and `ylabel!()` function to update the x-axis
+
+```{julia}
+y2 = rand(100) # another 100 randoms
+plot!(x, y2, label = "less amazing")
+xlabel!("time is not your friend")
+ylabel!("ooh la la la")
+```     
+
+Recall too that there is a `seriestype` argument to shift between the default line and, perhaps a scatterplot.  Note that we can deliver both y and y2.
+
+```{julia}
+plot(x, y, seriestype = [:line,:scatter], markershape = :diamond, lc = :orange, mc = :black, msc = :orange, label = "Y")
+plot!(x, y2, seriestype = [:line,:scatter], markershape = :diamond, lc = :blue, mc = :black,  msc = :blue, label = "Y2")
+```
+
+`mc` is for marker colour, `msc` is the colour of the line around the marker/shape and `lc` is for line colour.
+
+Of course, there is a `scatter()` plot function
+
+```{julia}
+scatter(x, y)
+```
+
+### Grouping Variables in Plots
+
+Julia's Plots.jl library does some basic work with grouping variables too, linking to key ideas about tidy data.  Let's look at some sample data where we have 12 data points.
+
+```{julia}
+sample_data = DataFrame([rand(12), repeat(["Network_1","Network_2","Network_3"],4)], ["stability", "network"])
+```
+
+Plotting the data, by group, is accomplished like this (note the use of the `.` to connect the dataframe to the variable name)
+
+```{julia}
+plot(sample_data.stability, group = sample_data.network)
+```
+
+This is a pretty silly plot because the x-axis makes no sense.  We might have wanted a bar-chart instead.
+
+```{julia}
+groupedbar(sample_data.stability, group = sample_data.network)
+```
+
+We'll see below how the package `StatsPlots` makes this easier and more flexible (a bit more like `{ggplot2}`).
+
+### Saving Plots
+
+Plots can be saved and outputted using savefig or by using an output marco (e.g. png or pdf). savefig saves the most recent plot (.png is default format) or you can name figures e.g., p1, and use that reference name to save the plot object at any time:
+
+```{julia}
+#| eval: false
+
+#not run
+savefig(p1, "path/to/file/p1.png")
+png(p1, "path/to/file/p1")
+pdf(p1, "path/to/file/p1")
+```
+
+Once you've created a plot it can be viewed or reopened in VS Code by navigating to the Julia explorer: Julia workspace symbol in the activity bar (three circles) and clicking on the plot object (e.g., p1). We advise that you always name and assign your plots (e.g. p1, p2, etc). The Plots package also has it's own [tutorial](https://docs.juliaplots.org/latest/tutorial/) for plotting in Julia.
+
+
+## StatsPlots
+
+As you saw in the Setup introduction, we can also use the StatsPlots package for plotting.  This approach invokes a background macro that allows you to use the DataFrames structure to deliver nice plots.
+
+
+```{julia}
+# make a second data frame with three variables
+# using DataFrame directly to create variables
+df2 = DataFrame(a=1:10, b=10*rand(10), c=10*rand(10))
+df2
+```
+
+The use of the `@df` macro from StatsPlots is a three step process:
+
+1. declare the `@df` macro
+2. define the data frame
+3. declare the columns, using the `:` symbol.
+
+```{julia}
+# plot the data using the data frame macro
+# declare the df macro, declare the data frame, use : to signify columns
+# note that the default is `x then y`.
+@df df2 plot(:a, :b)
+```
+
+One of the handy things about the `@df` macro and `StatsPlots` is the ability to add two or more variables at once:
+
+```{julia}
+# the same, and plotting two y variables (b and c)
+@df df2 plot(:a, [:b, :c])
+```
+
+There are several helper functions too.  For example, instead of the `[[:b, :c]` approach to multiple columns, there is a `cols` argument.
+
+```{julia}
+@df df2 plot(:a, cols(2:3), colour = [:red :blue])
+```
+
+Finally, coming back to the example above for plots using the `sample_data` dataframe with a grouping variable, we can see how `StatsPlots` mimics some of the faceting options and group options from `ggplot2`.
+
+First, the three groups in the same figure with an informative legend.
+
+```{julia}
+@df sample_data plot(:stability, group = :network, legend = :topleft)
+```
+
+Second, the same data but in three panels.
+
+```{julia}
+@df sample_data plot(:stability, group = :network, layout = 3)
+```
+
+And following the standard `Plots.jl` example for grouped bars....
+
+```{julia}
+@df sample_data groupedbar(:stability, group = :network)
+```
+
+## Gadfly
+
+There is a actively developed package called `Gadfly` which implements an interpretation of the `[ggplot2]` grammar of graphics.  It has been finicky and unstable for us in the past, but you are welcome to try it.  To use it, you need to install the package with the `] add Gadfly` first step, and then `using Gadfly` in the top of your script.
+
+A tutorial and set of examples can be found [here](http://gadflyjl.org/v0.5/tutorial.html)
+
+## Makie
+
+Finally Makie is another alternative to consider. It allows you to make very complex figure layout as well as 2D or 3D plots. Same as above to use this you'll need to first install the package - `] add Makie` and then call in you script with `using Makie`
+
+The documentation can be found [here](https://docs.makie.org/stable/)
