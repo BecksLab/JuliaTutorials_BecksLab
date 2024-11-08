@@ -1,6 +1,6 @@
 ---
 title: "Tutorial 3: Building and Working with DataFrames"
-date: now
+date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 format:
     html:

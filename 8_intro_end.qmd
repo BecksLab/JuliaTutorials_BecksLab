@@ -1,6 +1,6 @@
 ---
 title: "Tutorial 8: Introducing Ecological Network Dynamics (BEFWM2)"
-date: now
+date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 abstract: |
   This section of the tutorials initiates you into using the Bioenergetic Food Web Model.

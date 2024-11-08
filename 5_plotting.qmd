@@ -1,6 +1,6 @@
 ---
 title: "Tutorial 5: Plotting in Julia"
-date: now
+date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 format:
     html:

@@ -1,6 +1,6 @@
 ---
 title: "Tutorial 1: Downloads, Setups and Your First Project"
-date: now
+date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 format:
     html:

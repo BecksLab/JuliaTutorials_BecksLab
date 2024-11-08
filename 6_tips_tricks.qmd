@@ -1,6 +1,6 @@
 ---
 title: "Tutorial 6: Extra Tips and Tricks"
-date: now
+date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 format:
     html:
@@ -57,6 +57,11 @@ cc = deepcopy(aa)
 
 ```{julia}
 cc[3] = 101
+```
+
+See how only the third element of `cc` s changed but not `aa`?
+
+```{julia}
 aa,cc
 ```
 
@@ -65,6 +70,8 @@ aa,cc
 10. Docstrings are a supplement to `#`-based comments for documenting your workflow. Basically, any string that appears just before an object will be interpreted as documenting it. When you use a docstring it is possible to call that description using help (`?` in the REPL) or hovering over the object in VSCode. This can be very useful when you start declaring variables or building your own functions.
 
 ```{julia}
+#| echo: false
+
 "a wonderfully documented and described variable"
 var = 101
 ```
@@ -72,6 +79,8 @@ var = 101
 you can (should) also do this with functions
 
 ```{julia}
+#| echo: false
+
 """
     _rategradient(∂X, ∂Y)
 

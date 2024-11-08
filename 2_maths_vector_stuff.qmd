@@ -1,6 +1,6 @@
 ---
 title: "Tutorial 2: Using Julia for Maths and Vector Stuff"
-date: now
+date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 format:
     html:

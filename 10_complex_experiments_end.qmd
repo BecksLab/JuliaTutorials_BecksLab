@@ -1,6 +1,6 @@
 ---
 title: "Tutorial 10: Complex Experiments with the BEFWM2"
-date: now
+date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 format:
     html:
