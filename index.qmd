@@ -1,5 +1,5 @@
 ---
-title: "Julia and the BEFWM2 using VSCode"
+title: "Julia and using VSCode"
 date: now
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 
@@ -15,10 +15,10 @@ This set of tutorials is designed to help you use an integrated coding tool, VSC
 
 It will cover four core objectives
 
-1.  acquire/install the `Julia` programming language, the Integrated Development Environment called `VSCode`, and the `Bioenergetic Food Web Model` written in the Julia programming language.
+1.  Acquire/install the `Julia` programming language, the Integrated Development Environment called `VSCode`.
 2.  Learn how to work with `Julia` programming, from installing packages to understanding arithmetic and plotting and data frames
 3.  Learn how to simulate a simple predator-prey (consumer-resource) model using the `DifferentialEquations` package in Julia
-4.  Learn how to implement and use the multi-species `BioenergeticFoodWebModel` in Julia
+4.  Learn how to implement and use the multi-species `EcologicalNetworksDynamics` in Julia
 
 Having done these, you will then be introduced to further complexities and opportunities.
 

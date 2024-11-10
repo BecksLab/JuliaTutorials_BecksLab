@@ -22,7 +22,11 @@ Navigate to [this page](https://julialang.org/downloads/) and follow the platfor
 
 During the installation process, you may be prompted to add Julia to the PATH, this box should be ticked.
 
-> Juliaup is also an option but it might be worth keeping it simple since I'm assuming most people aren't going to be at the space where they need to be able to tap into multiple versions of Julia, although there is also something to be said about setting yourself up with the best toys on the market...
+::: {.callout-tip collapse="true"}
+## Using Juliaup
+
+[Juliaup](https://github.com/JuliaLang/juliaup) is an alternative platform to install and manage multiple versions of Julia you run on your computer. This is useful if you need to run different versions of Julia for different projects but probably not essential for a casual Julia user, although there is also something to be said about setting yourself up with the best toys on the market...
+:::  
 
 **VSCode**
 
@@ -137,7 +141,11 @@ you should see something like:
 
 ![Package Status Check](Figs/StatusCheck.png)
 
->   packages can removed in the same way i.e. `] rm Plots`  (or `Pkg.rm("Plots")`) will remove the Plots package from your project environment (and its record in the Project.toml and Manifest.toml files)
+::: {.callout-tip}
+## Tip
+
+Packages can removed in the same way i.e. `] rm Plots`  (or `Pkg.rm("Plots")`) will remove the Plots package from your project environment (and its record in the Project.toml and Manifest.toml files)
+:::  
 
 ## Gearing up to Do More Stuff (what packages do I need).
 
@@ -147,19 +155,19 @@ Go ahead and use either the `]` or `Pkg.add("package.name")` method to add all o
 
 #### For working with data
 
-CSV DataFrames DelimitedFiles
+`CSV` `DataFrames` `DelimitedFiles`
 
 #### For plotting
 
-Plots
+`Plots`
 
 #### For statistical things
 
-Distributions Random Statistics StatsBase StatsPlots
+`Distributions` `Random` `Statistics` `StatsBase` `StatsPlots`
 
 #### For Modelling
 
-DifferentialEquations
+`DifferentialEquations`
 
 ## Your first script setup.
 
@@ -187,7 +195,7 @@ First, lets get the setup sorted and packages available
 using DataFrames, Plots, Random, StatsPlots
 ```
 
-Second, let's make some variables and see how Julia print them to the screen
+Second, let's make some variables and see how Julia prints them to the screen
 
 ```{julia}
 # make two variables using the rand function
@@ -197,8 +205,6 @@ Random.seed!(12345)
 
 x = rand(10)
 y = rand(10)
-
-x
 ```
 
 Cool. Now, lets create two data frames, one made of the x and y variables, and another with three variables made directly in a call to `DataFrame`.
@@ -218,7 +224,7 @@ df2 = DataFrame(a=1:10, b=10*rand(10), c=10*rand(10))
 df2
 ```
 
-Great. Now, lets see how to plot the 'solo' variables. Note how we specify the seriestype. Try getting rid of this....
+Great. Now, lets see how to plot the 'solo' variables. Note how we specify the `seriestype`. Try getting rid of this....
 
 ```{julia}
 # plot the data using x and y, as a scatterplot
@@ -246,4 +252,4 @@ And here, we use the df2, and plot variable b and c vs. a.
 
 #### A quick briefing about data frames in Julia versus R and dplyr is here
 
-[DataFrames Comparison R dplyr)](https://dataframes.juliadata.org/stable/man/comparisons/#Comparison-with-the-R-package-dplyr)
+[DataFrames Comparison R dplyr](https://dataframes.juliadata.org/stable/man/comparisons/#Comparison-with-the-R-package-dplyr)
