@@ -17,10 +17,12 @@ Some quick tips that we've learnt the hard way...
 5. Blue wavy line under code in your script = _possible error in code_
 6. Errors and possible errors can be viewed in the PROBLEMS section of the REPL
 7. You can view your current variables (similar to the top right hand panel in RStudio) by clicking on the Julia explorer: Julia workspace symbol in the activity bar (three circles). You can then look at them in more detail by clicking the sideways arrow (when allowed).
+8. The `copy` function in Julia does not behave as one intuitively expects and if you want to make changes to a copied item without altering the original use `deepcopy` instead
 
-### COPYING versus DEEP COPYING :-)
+::: {.callout-tip collapse="true"}
+## COPYING versus DEEP COPYING
 
-8. Julia has a strange copying behaviour where if `a` = `b`, any change in `b` will automatically cause the same change in `a`. For example, let's make an array of three numbers:
+Julia has a strange copying behaviour where if `a` = `b`, any change in `b` will automatically cause the same change in `a`. For example, let's make an array of three numbers:
 
 ```{julia}
 aa = [1,2,3]
@@ -65,12 +67,19 @@ See how only the third element of `cc` s changed but not `aa`?
 aa,cc
 ```
 
+:::
+
 9. You can view a `.csv` or `.txt` file by clicking on a file name in the project directory (left panel) - this opens a viewing window. CSV's also have a built in 'Preview' mode - try using right click>Open Preview on a `.csv` file and check it out.
 
 10. Docstrings are a supplement to `#`-based comments for documenting your workflow. Basically, any string that appears just before an object will be interpreted as documenting it. When you use a docstring it is possible to call that description using help (`?` in the REPL) or hovering over the object in VSCode. This can be very useful when you start declaring variables or building your own functions.
 
+::: {.callout-tip collapse="true"}
+## Docstrings
+
+Below is an examle of a docstring for a global variable as well as how it would look for a function
+
 ```{julia}
-#| echo: false
+#| output: false
 
 "a wonderfully documented and described variable"
 var = 101
@@ -79,7 +88,7 @@ var = 101
 you can (should) also do this with functions
 
 ```{julia}
-#| echo: false
+#| output: false
 
 """
     _rategradient(∂X, ∂Y)
@@ -100,3 +109,5 @@ function _rategradient(∂X::T, ∂Y::T) where {T <: Number}
     return (m, θ)
 end
 ```
+
+:::
