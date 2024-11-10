@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 10: Complex Experiments with the BEFWM2"
+title: "Tutorial 10: Complex Experiments with the END"
 date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 format:
@@ -7,6 +7,12 @@ format:
         embed-resources: true
 title-block-banner: true
 ---
+
+::: {.callout-caution}
+## Warning
+
+Stability was replaced by Shannon diversity - need to review context as well as if we want that or rather re-integrate stability
+:::
 
 The previous tutorial focused on experiments where we manipulated the number of networks and various network parameters.  This is one set of things we can change/vary in an _in silico_ experiment.  The other set of things we can change are features of the model, such as the shape of the functional response (see Tutorial 7), features of the environment such as the carrying capacity, or even empirical relationships that drive trophic structure and interaction strengths, such as the predator-prey mass ratio.
 
@@ -53,7 +59,12 @@ The significant BIG thing here is the LogisticGrowth function which allows us to
 
 Note too our use of `println` and the values of `Z` and `K` to produce an informative _break_ between each combination.
 
-> Can you guess what increasing K will do to the biomass and richness of the community at equilibrium?  How about Z?  Will higher Z make things more or less stable?
+::: {.callout-note icon=false}
+
+Can you guess what increasing K will do to the biomass and richness of the community at equilibrium?  How about Z?  Will higher Z make things more or less stable?
+:::
+
+
 
 ```{julia}
 for z in Z_levels
@@ -144,11 +155,17 @@ A predator feeding with a Type I delivers to the prey a 'constant mortality rate
 
 A predator feeding with the Type II delivers an _inverse density dependent_ mortality rate.  The slope of the Type II line actually goes down as density of the prey goes up meaning that mortality rates for the prey, caused by the predator, are going down with prey density.  This means that the effect of predation is _inverse density dependent_ in the Type II.  This is **destabilising**.
 
-Finally, a predator feeding via a Type III can deliver a _density dependent_ mortality rate to the prey, but only at low prey densities.  This is an S shaped curve.  Below the inflection point, the slope is actually getting steeper.  This means that as prey density increases up to the inflection, their mortality rate from predation inceases (survival goes down with density going up). This is the hallmark of density dependence and can **stabilise** consumer-resource interactions.
+Finally, a predator feeding via a Type III can deliver a _density dependent_ mortality rate to the prey, but only at low prey densities.  This is an S shaped curve.  Below the inflection point, the slope is actually getting steeper.  This means that as prey density increases up to the inflection, their mortality rate from predation increases (survival goes down with density going up). This is the hallmark of density dependence and can **stabilise** consumer-resource interactions.
 
-> Remember that the logistic growth equation, with a carying capacity specified, is also a source of _density dependent negative feedback_
+::: {.callout-tip icon=false}
 
-> Remember No. 2: The Type II is the MOST common.  Type I is rare and even non-existent because it suggests there are no limits to how much a consumer can eat.  Type III is also rare, but it is at least plausible and interesting.
+Remember that the logistic growth equation, with a carying capacity specified, is also a source of _density dependent negative feedback_
+:::
+
+::: {.callout-tip icon=false}
+
+The Type II is the MOST common.  Type I is rare and even non-existent because it suggests there are no limits to how much a consumer can eat.  Type III is also rare, but it is at least plausible and interesting.
+:::
 
 ```{julia}
 

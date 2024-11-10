@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 9: Experiments with the BEFWM2"
+title: "Tutorial 9: Experiments with the END"
 date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 format:
@@ -64,7 +64,10 @@ nets[1]
 
 We can see that the `A` element is the matrix and you can guess that the `M` is the body `M`asses.  We also find tha there are 3 producers and 7 invertebrates and it is derived from the niche model
 
-> a side note on the metabolic classes.  The default parameterisation, and nearly all of the published work with the BEFW, uses invertebrates for all the non-producer species.  It is possible to include others.  But the data, currently, are not helpful (low volume) in supporting robust inference with these types of species.
+::: {.callout-tip}
+
+A side note on the metabolic classes.  The default parametrisation, and nearly all of the published work with the BEFW, uses invertebrates for all the non-producer species.  It is possible to include others.  But the data, currently, are not helpful (low volume) in supporting robust inference with these types of species.
+:::
 
 Now, recall that we can look specifically at the matrix by using `nets[1].A` which grabs the `A` part.  We introduce here the function `sum`.  As in **R**, `sum()` does what it says on the tin: for a vector, it addes up all the numbers and for a matrix, it does the same!  In our case here, when `sum()` is applied to a matrix of ones and zeros, it counts all the 1's.... thus is the estimate of the number of links in the community.  
 
@@ -110,7 +113,11 @@ end
 
 The term `global` means that the obects are made available in our global environment and should be there for us to see.  If you look closely at the mini-matrices, you'll see they are all different in micro-structure, despite having the same number of links and the same connectance.
 
-> NOTE: the presentation of the matrix is very specific here... the rows correspond to the predators and the columns the resources.  Obstensibly, the ranking is by body size, so small things are at the upper left.  This view shows that big things tend to eat small and big things, while small things eat small.  Historically, the reflection (pivot around the diagnol) has also been used, where the predators are the columns and the resources the rows.  This lead to a 'feature' of real and theoretical networks aligning, call `upper triangularity`.  In this latter presentation, most of the links would be in the upper triangle.  In the current presentation, the links are in the lower triangle.  So we can just call the feature `triangularity`.  The niche model reproduces this triangularity.
+::: {.callout-note}
+
+The presentation of the matrix is very specific here... the rows correspond to the predators and the columns the resources.  Obstensibly, the ranking is by body size, so small things are at the upper left.  This view shows that big things tend to eat small and big things, while small things eat small. Historically, the reflection (pivot around the diagnol) has also been used, where the predators are the columns and the resources the rows. This lead to a 'feature' of real and theoretical networks aligning, call `upper triangularity`.  In this latter presentation, most of the links would be in the upper triangle.  In the current presentation, the links are in the lower triangle.  So we can just call the feature `triangularity`.  The niche model reproduces this triangularity.
+:::
+
 
 ```{julia}
 networks
@@ -210,6 +217,12 @@ sim_niche = simulate(params_niche, B0, t)
 ```
 
 We've constructed a helper function to get information on which species go extinct and when they do.
+
+::: {.callout-caution}
+## Warning
+
+Section is no longer a built-in functionality in END. Alain should be able to address
+:::
 
 ```{julia}
 #| eval: false

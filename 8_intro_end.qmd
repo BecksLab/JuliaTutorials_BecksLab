@@ -1,5 +1,5 @@
 ---
-title: "Tutorial 8: Introducing Ecological Network Dynamics (BEFWM2)"
+title: "Tutorial 8: Introducing Ecological Network Dynamics (END)"
 date: last-modified
 author: "Danet and Becks, based on originals by Delmas and Griffiths"
 abstract: |
@@ -201,7 +201,12 @@ params_niche
 
 Walking through this
 
-> 🚧 This needs to be updated - might be explicitly highlighted in END documentation
+::: {.callout-caution}
+## Warning
+
+This section still reflects the old version of END structure and naming conventions
+:::
+
 
 1.  The `network` component defines the food web and reports the number of species and the links
 2.  the `environment` component reports on values of the carrying capacity (K) and the baseline temperature (`T`). Note that K is specified only for the basal species via `[1, 1, ... nothing, nothing]`. All the producers have the same K at this point (1,1,1...). The presence of the `T` suggests that we can ultimately work with climate change by running the model at different temperatures. There is a way to make some of the biorates and components of the functional response (see 3, 4) dependent not only on body mass, but also on temperature.
@@ -212,7 +217,12 @@ Walking through this
 
 ### Helper Functions: What can we do with the outputs?
 
-> 🚧 This should be revised by an END user.
+::: {.callout-caution}
+## Warning
+
+This section should be reviewed and revised by an END user who knows what we want to do with outputs.
+:::
+
 
 As noted in the pre-amble, we are most often interested in additional information about the scenarios we build with the models. These include, for example, total biomass, biodiversity and stability. Let's see how we can calculate some of these.
 
@@ -225,6 +235,13 @@ size(sim_niche.t)
 ```
 
 #### Who went extinct and when?
+
+::: {.callout-caution}
+## Warning
+
+Not a functionality in END.
+:::
+
 
 We can also find out who went extinct, and when. You saw some of that detail, I hope, in the output of `simulate`.
 
@@ -268,7 +285,11 @@ richness(sim_niche)
 shannon_diversity(sim_niche)
 ```
 
-> 🚧 This is no longer built in Alain should have some ideas how to address.
+::: {.callout-caution}
+## Warning
+
+Section is no longer a built-in functionality in END. Alain should be able to address
+:::
 
 Finally, we can look at stability - all built in metrics of stability are based on the coefficient of variation of species biomass. The CV is a measure of standardised variation - the standard deviation / mean (https://en.wikipedia.org/wiki/Coefficient_of_variation). It is not 'stability' in the strict mathematical sense, but an estimation of how variable the dynamics are.
 
