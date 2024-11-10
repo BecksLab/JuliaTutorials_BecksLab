@@ -34,7 +34,7 @@ fun time). Inspiration taken from [sciencegitmojis](https://github.com/MichielSt
 | Upcoming release                                        | `:package:`                | :package: v1.0.6                               |
 | Ugly but working code                                   | `:dragon:`                 | :dragon: added lattice function                |
 | Working on code that doesn't work but I want to go home | `:neutral_face:`           | :neutral_face: for triangulation               |
-| I forgot to save everything before committing           | `:face_with_rolling_eyes:` | :face_with_rolling_eyes: what is saving        |
+| I forgot to save everything before committing           | `:sandwich:`               | :sandwich: what is saving                      |
 | Jettisoned something                                    | `:boom:`                   | :boom: manifest                                |
 
 ## Workflow
