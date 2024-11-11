@@ -4929,7 +4929,6 @@ vertical-align: -.125em;
 <h3 class="anchored" data-anchor-id="moving-from-r-and-rstudio-to-julia-and-vscode">Moving from R and RStudio to Julia and VSCode</h3>
 <p>For users of <strong>R</strong> and <strong>RStudio</strong>, <strong>VSCode</strong> and <strong>Julia</strong> can be thought of as the same working team, i.e. <strong>VSCode</strong>/<strong>RStudio</strong> are the text editors that allow you to create a ‘rich text’ environment from which to run <strong>Julia</strong>/<strong>R</strong>. That being said (as to be expected) there are a few differences in the workflow that it might be worth familiarising yourself with. You can also keep <a href="#tbl-cheatsheet" class="quarto-xref">Table 1</a> handy to help with getting over the first initial stumbling blocks.</p>
 <p><strong>RStudio</strong> users might be familiar with the concept of working with projects (i.e. a way of ‘containerising’ your work within a specific directory), <strong>Julia</strong> works in a similar manner. Broadly a <strong>Julia</strong> project is much more localised in that any packages that you use (install) are downloaded locally for that specific project (environment), meaning that it is possible to have multiple versions of a package installed for different projects - which is very handy from a reproducibility perspective. The details of the packages (dependencies) that you install are recorded in the <code>Project.toml</code> (a records of packages that have been installed and their versions - very useful when sharing code as any user can see exactly what version of a package has been used) and the <code>Manifest.toml</code> (all the package dependencies installed - i.e. packages that for a part of the other packages that you have installed) files, these files are machine generated and will update as you add or removed packages while you work so you don’t need to worry too much about interacting with them but its good to know what they mean/do. For an <strong>R</strong> specific analogy these files can be thought as the equivalents of the <code>renv.lock</code> file generated from the <code>{renv}</code> package.</p>
-<p>The other thing to be aware of in <strong>Julia</strong> is multiple dispatch, more specifically that it has a very strict type system that will affect the behaviour of a function. <a href="https://www.moll.dev/projects/effective-multi-dispatch/">This</a> blog post provides a nice overview of multiple dispatch using Pokemon types but the take-home message here is that it is important that you specify the correct type of an object (something that we will cover in Tutorial 2) and that often times when you run into an error it is because of that… This may seem annoying at first but it does mean that in the long run your code is much ‘safer’ because you won’t (unknowingly) be converting and combining objects that are of different types unless you specifically specify it.</p>
 <div id="tbl-cheatsheet" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure">
 <figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-cheatsheet-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -4957,8 +4956,8 @@ Table 1: A moving from <strong>R</strong> to <strong>Julia</strong> cheatsheet
 </tr>
 <tr class="even">
 <td>install a package</td>
-<td>install.package(PACKAGE_NAME)</td>
-<td><p>Pkg.add(PACKAGE_NAME)</p>
+<td>install.package(“PACKAGE_NAME”)</td>
+<td><p>Pkg.add(“PACKAGE_NAME”)</p>
 <p><code>]</code> add PACKAGE_NAME</p></td>
 </tr>
 <tr class="odd">
