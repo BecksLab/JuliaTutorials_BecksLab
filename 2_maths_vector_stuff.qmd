@@ -15,35 +15,29 @@ using DataFrames, Plots, Random, StatsPlots
 
 This second document follows on from Tutorial 1: "Getting started" and assumes that you're still working in your active project.
 
-This document covers the following:
-
-- Basic maths
-- Arrays and Matrices
-- Dictionaries
-- DataFrames and CSVs
-- Functions
-- Loops
-- Plots
-- Scoping
-
 There is also a section at the end with some "Quick tips".
 
 ## Basic Maths {#sec-basic-maths}
 
 As you probably can guess, the REPL is an interface onto a large calculator.  Julia does all the things R does... and you can find the basic maths operations defined [The Julia Manual](https://docs.julialang.org/en/v1/manual/mathematical-operations/index.html)
 
+sums
 ```{julia}
-# sums
+#| output: false
+
 1+1
 ```
 
+exponents
 ```{julia}
-# power
+#| output: false
+
 10^3
 ```
 
+sequences in a vector
 ```{julia}
-# sequences in a vector
+
 # From 0, by 1, to 10...
 
 x = collect(0:1:10)
@@ -52,8 +46,9 @@ x = collect(0:1:10)
 x
 ```
 
+multiply vector by scalar value
 ```{julia}
-# multply scaler x vector.
+
 x*10
 ```
 
@@ -74,27 +69,36 @@ Allocating in Julia is useful as it means that variables can be stored and used 
 First note that we use the `=` in `Julia`, not the `<-` as in R.
 
 ```{julia}
+#| output: false
+
 # allocate an Integer number to a variable
 n = 5
 ```
 
-Julia, like other languages, has some built in values, like `pi`.  We can allocate these to variable names we will use.  Notice that Julia converts pi into the unicode symbol!
+Julia, like other languages, has some built in values, like `pi`.  We can allocate these to variable names we will use. Notice that Julia converts pi into the unicode symbol!
 
+::: {.callout-tip collapse="true"}
+## Capitalising on unicode
+
+`Julia` has built in unicode support that allows you to use mathematical symbols (and emojis!). This is vary useful when describing models and variables as you don't have to specify a 'wordy' variable but rather the actual mathematical symbol. Making for cleaner and more 'readable' code! 
+
+To 'access' different unicode symbols start by typing `\` and the standard name of the symbol you wish to use
+
+:::  
 
 ```{julia}
 # allocate a pre-defined number of importance to a variable
 # note that pi is converted to π
-# note2 - you can use \pi in a julia script to get the unicode π ...
-# this works for numerous greek letters etc.  Like \lambda for λ
+
 pi_sum = pi
 pi_sum
 ```
 
-We can use these unicode symbols (and emojis!), like λ, as objects
+We can use these unicode symbols (and emojis!), as a variable and assign them a value - meaning that 🐺 is totally a usable variable name!
 
 ```{julia}
-λ = 4
-λ
+🐺 = 4
+🐺
 ```
 
 You can also assign multiple values to separate variables in a concise manner.  Julia can manage something like this:
@@ -148,6 +152,13 @@ n2 = convert(Float64, n)
 typeof(n2)
 ```
 
+::: {.callout-tip collapse="true"}
+## Multiple dispatch using types
+
+The strict type system of Julia means that it is possible to define multiple 'methods' for functions depending on the type of the input object. Which allows you to have function behave different for different input types. [This](https://www.moll.dev/projects/effective-multi-dispatch/) blog post provides a nice overview of multiple dispatch using Pokemon types but the take-home message here is that it is important that you specify the correct type of an object and that often times when you run into an error it is because of that... This may seem annoying at first but it does mean that in the long run your code is much 'safer' because you won't (unknowingly) be converting and combining objects that are of different types unless you specifically specify it.
+
+:::  
+
 ## Understanding Arrays, Vectors and Sequences.
 
 As you saw above, we created a sequence of numbers using `collect(0:1:10)`. Let's look at what type of object this is:
@@ -162,7 +173,7 @@ This is a vector.  Let's step back to see the difference between arrays and vect
 empty_array = []
 ```
 
- We will first create an array with the same values as x and then see how collect() is the function that converts this to a vector, and actually lets us see the numbers too!
+We will first create an array with the same values as `x` and then see how `collect` is the function that converts this to a vector, and actually lets us see the numbers too!
 
 First, `range` can be used to make an array. This is very similar to `seq()` in `R` and has the two variations - `by` and `length` that the `R` function has.  The difference is that `by` is replaced by the argument `step`. Note how a very concise summary of this array is presented using information in square brackets `[ ]`:
 
@@ -219,6 +230,13 @@ ar[[2,4]]
 ```
 
 Note this would be like using in R `ar[c(2,4)]`.
+
+
+Another nice indexing feature is that you can simply specify `end` as a means to index the final element. This is quite useful when you *e.g.,* want to pull the final output of a series without needing to know how long the series is.
+
+```{julia}
+ar[end]
+```
 
 ## Broadcasting: something VERY special
 
