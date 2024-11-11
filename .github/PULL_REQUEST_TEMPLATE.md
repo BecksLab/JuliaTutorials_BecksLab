@@ -7,11 +7,13 @@ Explain in a few words what the pull request does.
 Please indicate the relevant option(s)
 
 - [ ] :bug: Bug fix (non-breaking change which fixes an issue)
-- [ ] :sparkle: New feature (non-breaking change which adds functionality)
+- [ ] :sparkle: New tutorial page
 - [ ] :boom: Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] :book: This change requires a documentation update
+- [ ] :book: Update to current tutorial page content
 
 **Checklist**
+
+Please indicate the relevant option(s)
 
 - [ ] New "pages" are added in `_quarto.yml`
 - [ ] The website renders locally
