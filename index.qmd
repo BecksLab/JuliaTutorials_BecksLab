@@ -35,7 +35,7 @@ The other thing to be aware of in **Julia** is multiple dispatch, more specifica
 +===================================================================================+===============================+=========================+
 | checking current working directory                                                | getwd()                       | pwd()                   |
 +-----------------------------------------------------------------------------------+-------------------------------+-------------------------+
-| install a package                                                                 | install.package(PACKAGE_NAME) | Pkg.add(PACKAGE_NAME)   |
+| install a package                                                                 |install.package("PACKAGE_NAME")| Pkg.add("PACKAGE_NAME") |
 |                                                                                   |                               |                         |
 |                                                                                   |                               | `]` add PACKAGE_NAME    |
 +-----------------------------------------------------------------------------------+-------------------------------+-------------------------+
