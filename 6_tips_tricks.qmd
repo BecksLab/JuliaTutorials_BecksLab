@@ -10,14 +10,15 @@ title-block-banner: true
 
 Some quick tips that we've learnt the hard way...
 
-1. In the REPL, you can use the up arrow to scroll through past code
-2. You can even filter through your past code by typing the first letter of a line previously executed in the REPL. For example, try typing p in the REPL and using the up arrow to scroll through your code history, you should quickly find the last plot command you executed.
-3. Toggle word wrap via `View>Toggle Word Wrap` or `alt-Z`
-4. Red wavy line under code in your script = _error in code_
-5. Blue wavy line under code in your script = _possible error in code_
-6. Errors and possible errors can be viewed in the PROBLEMS section of the REPL
-7. You can view your current variables (similar to the top right hand panel in RStudio) by clicking on the Julia explorer: Julia workspace symbol in the activity bar (three circles). You can then look at them in more detail by clicking the sideways arrow (when allowed).
-8. The `copy` function in Julia does not behave as one intuitively expects and if you want to make changes to a copied item without altering the original use `deepcopy` instead
+1.  In the REPL, you can use the up arrow to scroll through past code
+2.  You can even filter through your past code by typing the first letter of a line previously executed in the REPL. For example, try typing p in the REPL and using the up arrow to scroll through your code history, you should quickly find the last plot command you executed.
+3.  Toggle word wrap via `View>Toggle Word Wrap` or `alt-Z`
+4.  To interrupt Julia while it is running through code use `⌘`/`Ctrl` + `C`
+5.  Red wavy line under code in your script = *error in code*
+6.  Blue wavy line under code in your script = *possible error in code*
+7.  Errors and possible errors can be viewed in the PROBLEMS section of the REPL
+8.  You can view your current variables (similar to the top right hand panel in RStudio) by clicking on the Julia explorer: Julia workspace symbol in the activity bar (three circles). You can then look at them in more detail by clicking the sideways arrow (when allowed).
+9.  The `copy` function in Julia does not behave as one intuitively expects and if you want to make changes to a copied item without altering the original use `deepcopy` instead
 
 ::: {.callout-tip collapse="true"}
 ## COPYING versus DEEP COPYING
@@ -48,10 +49,9 @@ The default behaviour of `=` in Julia is to *UPDATE* any copy of the array, so w
 aa
 ```
 
-Whoa... that's not what we expect, though it's pretty cool.  This approach is advantageous because it lets Julia save memory, however, it is not ideal.
+Whoa... that's not what we expect, though it's pretty cool. This approach is advantageous because it lets Julia save memory, however, it is not ideal.
 
 To remedy this, and create copies that don't update their parent or other offspring, we can force c to be an independent copy of a using the `deepcopy` function:
-
 
 ```{julia}
 cc = deepcopy(aa)
@@ -66,10 +66,9 @@ See how only the third element of `cc` s changed but not `aa`?
 ```{julia}
 aa,cc
 ```
-
 :::
 
-9. You can view a `.csv` or `.txt` file by clicking on a file name in the project directory (left panel) - this opens a viewing window. CSV's also have a built in 'Preview' mode - try using right click>Open Preview on a `.csv` file and check it out.
+9.  You can view a `.csv` or `.txt` file by clicking on a file name in the project directory (left panel) - this opens a viewing window. CSV's also have a built in 'Preview' mode - try using right click\>Open Preview on a `.csv` file and check it out.
 
 10. Docstrings are a supplement to `#`-based comments for documenting your workflow. Basically, any string that appears just before an object will be interpreted as documenting it. When you use a docstring it is possible to call that description using help (`?` in the REPL) or hovering over the object in VSCode. This can be very useful when you start declaring variables or building your own functions.
 
@@ -109,5 +108,4 @@ function _rategradient(∂X::T, ∂Y::T) where {T <: Number}
     return (m, θ)
 end
 ```
-
 :::
