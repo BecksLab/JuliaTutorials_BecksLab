@@ -17,6 +17,10 @@ using DataFrames, Random, StatsPlots, Plots
 
 ## Downloading and Installing Julia and VSCode
 
+::: {.callout-caution}
+This is a test
+:::  
+
 **Julia**
 
 Navigate to [this page](https://julialang.org/downloads/) and follow the platform-specific instructions to download and install Julia (we recommend installing the current stable release).
