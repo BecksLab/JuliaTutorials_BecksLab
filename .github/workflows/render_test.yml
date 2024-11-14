@@ -1,9 +1,8 @@
 on:
   workflow_dispatch:
-  push:
-    branches: main
+  pull_request:
 
-name: Quarto Publish
+name: Quarto Render test
 
 jobs:
   build-deploy:
@@ -21,9 +20,7 @@ jobs:
           tinytex: true
 
 
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2       
         with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          to: html
