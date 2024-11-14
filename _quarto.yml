@@ -30,6 +30,12 @@ website:
           - 8_intro_end.qmd
           - 9_experiments_end.qmd
           - 10_complex_experiments_end.qmd
+  page-footer:     
+    background: primary 
+    right: 
+      - icon: code
+        text: "{{< fa code >}} Source code"
+        href: https://github.com/BecksLab/JuliaTutorials_BecksLab
 
 format:
   html:
