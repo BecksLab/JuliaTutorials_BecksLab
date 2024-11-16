@@ -38,4 +38,4 @@ format:
 
 
 execute:
-  freeze: auto
+  freeze: false
