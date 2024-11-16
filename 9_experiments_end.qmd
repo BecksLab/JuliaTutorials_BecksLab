@@ -13,6 +13,7 @@ engine: julia
 #| echo: false
 #| include: false
 
+using Pkg
 Pkg.instantiate()
 ```
 
