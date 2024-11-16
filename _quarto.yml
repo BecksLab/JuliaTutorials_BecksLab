@@ -35,3 +35,7 @@ format:
   html:
     theme: minty
     toc: true
+
+
+execute:
+  freeze: false
