@@ -7,8 +7,6 @@
 # MacOS nonsense
 .DS_Store
 
-Manifest.toml
-
 # quarto
 
 docs/
