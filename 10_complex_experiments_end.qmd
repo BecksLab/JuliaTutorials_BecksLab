@@ -36,6 +36,7 @@ The default setting for the models is 1 - i.e. all species are within the same o
 
 
 ```{julia}
+
 #Fixed Parameters
 S = 20
 C = 0.15
@@ -68,6 +69,8 @@ Can you guess what increasing K will do to the biomass and richness of the commu
 
 
 ```{julia}
+#| output: false
+
 for z in Z_levels
     for k in K_levels
 
@@ -192,6 +195,7 @@ The Classic functional less phenomenological in that the response is defined mor
 Let's look at using the Bioenergetic functional response, and see here how we can vary the shape between Type II and Type III. We can do this by modifying the *hill_exponent* after we have specified the model (*i.e.,* after the `default_model` call). We will look at how Richness, Biomass and Shannon Diversity are affected by the hill exponent.
 
 ```{julia}
+#| output: false
 
 Random.seed!(12352)
 
@@ -203,7 +207,7 @@ C = 0.15
 h_levels = [1.0, 1.1, 1.25, 2.0]
 
 # set collecting data frame 
-# we will look at how Richness, Biomass and Stability are affected by the hill exponent
+# we will look at how Richness, Biomass and Shannon Diversity are affected by the hill exponent
 df_collect_h = DataFrame(h = [], FinalRichness = [], FinalBiomass = [], ShannonDiversity = [])
 
 # create look across values of h
@@ -242,13 +246,12 @@ df_collect_h
 Now, we can visualise these data
 
 ```{julia}
-#| eval: false
-
+#| output: false
 
 # Visualize the results
-p1_h = @df df_collect_h plot(:h, [:FinalStability],
+p1_h = @df df_collect_h plot(:h, [:FinalRichness],
     legend = :bottomright,
-    ylabel = "Stability",
+    ylabel = "Richness",
     xlabel = "Functional response",
     seriestype = [:scatter, :line])
 
@@ -258,9 +261,9 @@ p2_h = @df df_collect_h plot(:h, [:FinalBiomass],
     xlabel = "Functional response",
     seriestype = [:scatter, :line])
 
-p3_h = @df df_collect_h plot(:h, [:FinalRichness],
+p3_h = @df df_collect_h plot(:h, [:ShannonDiversity],
     legend = :bottomright,
-    ylabel = "Richness",
+    ylabel = "Shannon Diversity",
     xlabel = "Functional response",
     seriestype = [:scatter, :line])
 
@@ -300,6 +303,8 @@ $M_C = Z^(T-1)$
 [Brose et al 2006](https://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2006.00978.x) explored the impact of the _PPMR_ on stability and dynamics as part of their wider exploration of scaling and allometry in the bioenergetic model.  Here we show you how to manipulate `Z` and it's effect on stability.  `Z` is specified in the call to FoodWeb as the allocation of species with specific sizes is central to the trophic structure of the model.  This argument is interfaced with the bodysize vector in `model_parameters()`
 
 ```{julia}
+#| output: false
+
 Random.seed!(12352)
 
 # fixed parameters
@@ -310,7 +315,7 @@ C = 0.15
 z_levels= [0.1, 1, 10, 100]
 
 # set collecting data frame 
-# we will look at how Richness, Biomass and Stability are affected by the hill exponent
+# we will look at how Richness, Biomass and Shannon Diversity are affected by the hill exponent
 df_collect_z = DataFrame(z = [], FinalRichness = [], FinalBiomass = [], ShannonDiversity = [])
 
 # create look across values of h
@@ -346,12 +351,12 @@ df_collect_z
 As with the variation in `h`, we can create a set of figures too!  Perhaps it's worth your time to consult [Brose et al 2006](https://onlinelibrary.wiley.com/doi/10.1111/j.1461-0248.2006.00978.x) and [Reger et al 2017](https://besjournals.onlinelibrary.wiley.com/doi/10.1111/2041-210X.12713) to make sure you understand how Z works and particularly how stability is expected to vary with Z!  One of the most important things to understanding is why the stability metric is negative and what values of stability close, or far away, from zero mean.
 
 ```{julia}
-#| eval: false
+#| output: false
 
 # Visualize the results
-p1_z = @df df_collect_z plot(:z, [:FinalStability],
+p1_z = @df df_collect_z plot(:z, [:FinalRichness],
     legend = :bottomright,
-    ylabel = "Stability",
+    ylabel = "Richness",
     xlabel = "Z value (PPMR)",
     seriestype = [:scatter, :line])
 
@@ -361,9 +366,9 @@ p2_z = @df df_collect_z plot(:z, [:FinalBiomass],
     xlabel = "Z value (PPMR)",
     seriestype = [:scatter, :line])
 
-p3_z = @df df_collect_z plot(:z, [:FinalRichness],
+p3_z = @df df_collect_z plot(:z, [:ShannonDiversity],
     legend = :bottomright,
-    ylabel = "Richness",
+    ylabel = "Shannon Diversity",
     xlabel = "Z value (PPMR)",
     seriestype = [:scatter, :line])
 
@@ -388,7 +393,7 @@ What we can do is set $\alpha~ii = 1$ and then vary $\alpha~ij$ from $<1$ to $>1
 
 
 ```{julia}
-#| eval: false
+#| output: false
 
 S = 20 # define the number of species
 C = 0.2 # define the connectance (complexity) of the network
@@ -409,7 +414,7 @@ for alpha_ij in interspecific_vals
     
     # this will make always the same network and body mass
     Random.seed!(123)
-    foodweb = Foodweb(:niche; S = S, C = C, Z = Z)
+    foodweb = Foodweb(:niche; S = S, C = C)
 
     # enhance detail in the network
     #We fix intraspecific = 1 (diag) and vary interspecific (off)
@@ -446,16 +451,20 @@ Let's review the assumptions above.  We've set the `Predator Prey Mass Ratio` to
 
 
 ```{julia}
-#| eval: false
+#| output: false
+
 p1 = @df df_collect_comp plot(:InterComp, [:FinalRichness],
     ylabel = "Richness",
-    xlabel = "alpha_ij")
+    xlabel = "alpha_ij",
+    seriestype = [:scatter, :line])
 p2 = @df df_collect_comp plot(:InterComp, [:FinalBiomass],
     ylabel = "Biomass",
-    xlabel = "alpha_ij")
+    xlabel = "alpha_ij",
+    seriestype = [:scatter, :line])
 p3 = @df df_collect_comp plot(:InterComp, [:ShannonDiversity],
     ylabel = "Shannon Diversity",
-    xlabel = "alpha_ij")
+    xlabel = "alpha_ij",
+    seriestype = [:scatter, :line])
 
 plot(p1, p2, p3, layout = (3,1), legend = false)
 ```
