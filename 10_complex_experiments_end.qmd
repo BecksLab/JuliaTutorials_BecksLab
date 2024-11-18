@@ -378,9 +378,9 @@ Could you modify this to ask about the interaction between Z and K?  This would 
 
 Our final experiment for this section involves manipulating how the basal producers compete with each other.  The default paramterisation of the model has each producer growing via the logistic equation and competing with itself via density dependence.  There is only intraspecific competition, no interspecific competition.
 
-We can modify this assumption by invoking another function called `ProducerCompetition`.  This function acts like `Environment` that we use to set `K` and `BioenergeticResponse` that we used to modify the functional response between Type II and Type III.
+We can modify this assumption by invoking another function called `ProducerCompetition`.  This function acts like `LogisticGrowth` that we use to set `K` and `BioenergeticResponse` that we used to modify the functional response between Type II and Type III.
 
-The theory to recall is that coexistence among species is mediated by the balance between intraspecific and interspecific competition.  When intraspecific competition is greater than interspecific competition, there is coexistence.  However, when interspecific competition is greater than intraspecific competition, there will be compeitive exclusion and no coexistence.  
+The theory to recall is that coexistence among species is mediated by the balance between intraspecific and interspecific competition.  When intraspecific competition is greater than interspecific competition, there is coexistence.  However, when interspecific competition is greater than intraspecific competition, there will be competitive exclusion and no coexistence.  
 
 We call the competition parameters $\alpha$. $\alpha~ii$ defines intraspecific competition and $\alpha~ij$ defines interspecific competition.  The $\alpha~ij$ defines how the species $j$ reduces the carrying capacity (equilibrium) of species $i$.  
 
@@ -393,6 +393,7 @@ What we can do is set $\alpha~ii = 1$ and then vary $\alpha~ij$ from $<1$ to $>1
 S = 20 # define the number of species
 C = 0.2 # define the connectance (complexity) of the network
 Z = 100 # Predator Prey Mass Ratio
+t = 300 # time steps
 
 # here we set the 
 interspecific_vals = 0.8:0.05:1.2 # a set of (9) values between 0.8 and 1.2 in steps of 0.05
@@ -400,7 +401,7 @@ interspecific_vals = 0.8:0.05:1.2 # a set of (9) values between 0.8 and 1.2 in s
 
 
 # set collecting data frame 
-# we will look at how Richness, Biomass and Stability are affected by the hill exponent
+# we will look at how Richness, Biomass and Shannon Diversity are affected by interspecific competition
 df_collect_comp = DataFrame(InterComp = [], FinalRichness = [], FinalBiomass = [], ShannonDiversity = [])
 
 for alpha_ij in interspecific_vals
@@ -411,30 +412,31 @@ for alpha_ij in interspecific_vals
     foodweb = Foodweb(:niche; S = S, C = C, Z = Z)
 
     # enhance detail in the network
-    # specify K
-    LogisticGrowth(foodweb; K = 10)
-    # we fix intraspecific = 1 and vary interspecific
-    ProducerCompetiton(foodweb; αii = 1.0, αij = 1)
-    # set the hill exponent to 1 (type II Functional Response)
-    BioenergeticResponse(foodweb, h = 1)
+    #We fix intraspecific = 1 (diag) and vary interspecific (off)
+    p = ProducersCompetition(foodweb; diag = 1.0, off = alpha_ij)
+    #Specify K and competition in LogisticGrowth
+    r = LogisticGrowth(K = 10, producers_competition = p)
 
-    # define parameters with extras
-    params_comp = default_model(foodweb, BodyMass(; Z = z))
+    #Set the hill exponent to 1 (type II Functional Response)
+    b = BioenergeticResponse(h = 1)
 
-    # set bodymass
+    #Define parameters with extras
+    params_comp = default_model(foodweb, BodyMass(; Z = Z), b, r)
+
+    # set initial biomasses
     B0 = rand(S)
 
     # simulate
     # note verbose = false ; remove this to see extinction detail for each sim
-    out_comp = simulate(params_comp, B0, verbose = false)
+    out_comp = simulate(params_comp, B0, t, verbose = false)
 
     # generate stats and add to collector
     # collect data 
     fin_rich = richness(out_comp)
-    fin_bio = biomass(out_comp).total
-    stab = community_cv(out_comp)
+    fin_bio = total_biomass(out_comp)
+    s_div = shannon_diversity(out_comp)
 
-    push!(df_collect_comp, [alpha_ij, fin_rich, fin_bio, stab])
+    push!(df_collect_comp, [alpha_ij, fin_rich, fin_bio, s_div])
 end
 
 df_collect_comp
@@ -451,8 +453,8 @@ p1 = @df df_collect_comp plot(:InterComp, [:FinalRichness],
 p2 = @df df_collect_comp plot(:InterComp, [:FinalBiomass],
     ylabel = "Biomass",
     xlabel = "alpha_ij")
-p3 = @df df_collect_comp plot(:InterComp, [:FinalStability],
-    ylabel = "Stability",
+p3 = @df df_collect_comp plot(:InterComp, [:ShannonDiversity],
+    ylabel = "Shannon Diversity",
     xlabel = "alpha_ij")
 
 plot(p1, p2, p3, layout = (3,1), legend = false)
@@ -462,7 +464,7 @@ plot(p1, p2, p3, layout = (3,1), legend = false)
 
 Perhaps consider expanding the code above to assess one of these?
 
-Is this pattern sensitive to specie richness?
+Is this pattern sensitive to species richness?
 Is this pattern sensitive to the functional response?
 Is this pattern sensitive to the PPMR?
 Is this pattern sensitive to values of K?
