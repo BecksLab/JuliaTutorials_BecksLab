@@ -12,23 +12,23 @@ website:
       - section: "Setting Up"
         contents:
           - index.qmd
-          - 1_download_setup.qmd
+          - 01_download_setup.qmd
       - section: "Basic Calculations and Objects"
         contents:
-          - 2_maths_vector_stuff.qmd
-          - 3_dataframes.qmd
+          - 02_maths_vector_stuff.qmd
+          - 03_dataframes.qmd
       - section: "Programming, Plotting and Extra Tips"
         contents:
-          - 4_programming_basics.qmd
-          - 5_plotting.qmd
-          - 6_tips_tricks.qmd
+          - 04_programming_basics.qmd
+          - 05_plotting.qmd
+          - 06_tips_tricks.qmd
       - section: "Intro to Differential Equations"
         contents:
-          - 7_differential_equations.qmd
+          - 07_differential_equations.qmd
       - section: "Intro to the BEFW model"
         contents:
-          - 8_intro_end.qmd
-          - 9_experiments_end.qmd
+          - 08_intro_end.qmd
+          - 09_experiments_end.qmd
           - 10_complex_experiments_end.qmd
   page-footer:     
     background: primary 
