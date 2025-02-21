@@ -39,7 +39,7 @@ website:
 
 format:
   html:
-    theme: minty
+    theme: [minty, mystyles.scss]
     toc: true
 
 
